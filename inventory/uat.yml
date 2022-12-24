@@ -1,5 +1,5 @@
 [lb]
-1172.31.20.135 ansible_ssh_user='ubuntu'
+172.31.20.135 ansible_ssh_user='ubuntu'
 
 [uat-webservers]
 
