@@ -1,6 +1,7 @@
 ---
 # tasks file for apache
 - name: "Installing httpd software"
+  become: yes 
   package:
      name: "httpd"
      state: present
