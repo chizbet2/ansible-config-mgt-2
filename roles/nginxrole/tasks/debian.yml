@@ -1,5 +1,5 @@
 ---
-- name: debian | Adding NGINX PPA
+- name: NGINX version
   enable_apache_lb: true
   load_balancer_is_required: true
   apt_repository:
