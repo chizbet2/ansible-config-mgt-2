@@ -4,6 +4,8 @@
     repo: "ppa:nginx/{{ nginx_load_balancer_version }}"
     state: "present"
   become: true
+  enable_apache_lb: true
+  load_balancer_is_required: true
 
 - name: debian | Installing NGINX
   apt:
@@ -18,5 +20,4 @@
   become: true
   with_items:
     - 'libapache2-mod-rpaf'
-  enable_apache_lb: true
-  load_balancer_is_required: true
+ 
