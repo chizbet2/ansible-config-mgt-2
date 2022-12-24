@@ -18,3 +18,5 @@
   become: true
   with_items:
     - 'libapache2-mod-rpaf'
+  enable_apache_lb: true
+  load_balancer_is_required: true
