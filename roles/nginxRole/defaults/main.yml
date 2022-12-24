@@ -1,8 +1,8 @@
 ---
 # defaults file for ansible-nginx-load-balancer
 # defaults file for nginxRole
-enable_nginx_lb: true
-load_balancer_is_required: true
+enable_nginx_lb: false
+load_balancer_is_required: false
 
 # NGINX load balancer configs
 ## frontend_listen_port
