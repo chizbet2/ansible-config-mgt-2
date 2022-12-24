@@ -1,5 +1,8 @@
 ---
 # defaults file for ansible-nginx-load-balancer
+# defaults file for nginxRole
+enable_nginx_lb: true
+load_balancer_is_required: true
 
 # NGINX load balancer configs
 ## frontend_listen_port
@@ -144,5 +147,3 @@ nginx_load_balancer_version: 'stable'
 # by using the Apache benchmark tool to see where the sweet spot is.
 # ab -c 40 -n 50000 http://192.168.250.200/
 nginx_load_balancer_worker_processes: '{{ ansible_processor_vcpus * 4 }}'
-enable_nginx_lb: true
-load_balancer_is_required: true
