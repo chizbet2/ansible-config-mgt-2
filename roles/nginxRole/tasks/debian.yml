@@ -1,5 +1,14 @@
 ---
+<<<<<<< HEAD
+- name: nginx version
+=======
 - name: NGINX version
+<<<<<<< HEAD
+=======
+  enable_apache_lb: false
+  load_balancer_is_required: false
+>>>>>>> f1ce16c6a2c4aace1368f25bd8f2286a7d6ae7f3
+>>>>>>> b29a0d1755b231ba5553c49683777c5cd6d42693
   apt_repository:
     repo: "ppa:nginx/{{ nginx_load_balancer_version }}"
     state: "present"
