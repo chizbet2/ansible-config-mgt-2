@@ -37,5 +37,5 @@
 
 - name: Enable load balancer configuration
   become: yes
-  command: "a2enconf 172.31.27.1"
+  command: "a2enconf lb"
   notify: Restart apache2 service
