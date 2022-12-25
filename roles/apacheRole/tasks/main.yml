@@ -6,17 +6,21 @@
      name: "apache2"
      state: present
 - name: "Installing php software for php files"
+  become: yes
   package: 
      name: "php"
-- name: "copying php file to document root"     
+- name: "copying php file to document root"   
+  become: yes  
   copy:
      src: "g.php"
      dest: "/var/www/html/index.php"
 - name: "starting services"
+  become: yes
   service: 
      name: "apache2"
      state: started
-- name: "updating firewall rules for httpd"
+- name: "updating firewall rules for apache2"
+  become: yes
   firewalld:
         port: 80/tcp
         immediate: yes
