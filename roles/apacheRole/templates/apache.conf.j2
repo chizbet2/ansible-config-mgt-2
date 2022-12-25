@@ -1,0 +1,20 @@
+<VirtualHost *:80>
+
+
+        <Proxy "balancer://mycluster">
+                
+                BalancerMember http://{{54.191.101.230}}:80/index.php loadfactor=5 timeout=1
+                BalancerMember http://{{web2}}:80/index.php loadfactor=5 timeout=1
+               ProxySet lbmethod=bytraffic
+               # ProxySet lbmethod=byrequests
+        </Proxy>
+        ProxyPreserveHost On
+        ProxyPass / balancer://mycluster/
+        ProxyPassReverse / balancer://mycluster/
+</VirtualHost>
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+
+    Terms
+    Privacy
