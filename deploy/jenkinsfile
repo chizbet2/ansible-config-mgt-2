@@ -35,7 +35,7 @@ pipeline {
 
         stage ('Run Ansible playbook') {
             steps {
-            ansiblePlaybook credentialsId: '9f5259bf-4d84-4dc3-a9a7-6cc68157b258', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/dev.yml', playbook: 'playbooks/site.yml'}
+            ansiblePlaybook credentialsId: '9f5259bf-4d84-4dc3-a9a7-6cc68157b258', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/${ENV}', playbook: 'playbooks/site.yml'}
         }
 
         stage ('Clean Workspace after build') {
