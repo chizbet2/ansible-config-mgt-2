@@ -22,7 +22,7 @@ pipeline {
 
         stage ('Checkout SCM') {
             steps{
-                git branch: 'master', url: 'https://github.com/chizbet2/ansible-config-mgt-2.git'
+                git branch: 'main', url: 'https://github.com/uzukwujp/ansible-config-mgt-4.git'
             }
         }
 
@@ -35,7 +35,9 @@ pipeline {
 
         stage ('Run Ansible playbook') {
             steps {
-            ansiblePlaybook become: true, colorized: true, credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/dev.yml', playbook: 'playbooks/site.yml'        }
+            ansiblePlaybook become: true, colorized: true, credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/dev.yml', playbook: 'playbooks/site.yml'
+            }
+        }
 
         stage ('Clean Workspace after build') {
             steps {
