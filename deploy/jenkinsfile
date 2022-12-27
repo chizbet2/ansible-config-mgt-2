@@ -1,0 +1,11 @@
+pipeline{
+    agent any
+    stages{
+        stage('Execute Ansible'){
+            steps{
+                ansiblePlaybook credentialsId: '9f5259bf-4d84-4dc3-a9a7-6cc68157b258', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/dev.yml', playbook: 'playbooks/site.yml'
+            }
+        }
+    }
+
+}
