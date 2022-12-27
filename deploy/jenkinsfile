@@ -1,11 +1,47 @@
-pipeline{
+pipeline {
     agent any
-    stages{
-        stage('Execute Ansible'){
+
+    parameters {
+        string (name: 'env', defaultValue: 'dev.yml',  description: 'This is the inventory file for the environment to deploy configuration')
+        }
+
+    environment {
+        ANSIBLE_CONFIG="${WORKSPACE}/deploy/.ansible.cfg"
+            }
+
+    
+
+    stages {
+        stage("Initial cleanup") {
+            steps {
+                dir("${WORKSPACE}") {
+                deleteDir()
+                    }
+                }
+            }
+
+        stage ('Checkout SCM') {
             steps{
-                ansiblePlaybook credentialsId: '9f5259bf-4d84-4dc3-a9a7-6cc68157b258', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/dev.yml', playbook: 'playbooks/site.yml'
+                git branch: 'master', url: 'https://github.com/chizbet2/ansible-config-mgt-2.git'
+            }
+        }
+
+        stage ('Prepare Ansible For Execution') {
+            steps {
+            sh 'echo ${WORKSPACE}' 
+            sh 'sed -i "3 a roles_path=${WORKSPACE}/roles" ${WORKSPACE}/deploy/.ansible.cfg'  
+            }
+        }
+
+        stage ('Run Ansible playbook') {
+            steps {
+            ansiblePlaybook credentialsId: '9f5259bf-4d84-4dc3-a9a7-6cc68157b258', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/dev.yml', playbook: 'playbooks/site.yml'}
+        }
+
+        stage ('Clean Workspace after build') {
+            steps {
+            cleanWs(cleanWhenAborted: true, cleanWhenFailure: true, cleanWhenNotBuilt: true, cleanWhenUnstable: true, deleteDirs: true)
             }
         }
     }
-
 }
