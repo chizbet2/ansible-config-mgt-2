@@ -7,5 +7,5 @@
 [sonarqube]
 
 
-[artifact_repository]
+[artifactory]
 172.31.16.225 ansible_ssh_user='ec2-user'
