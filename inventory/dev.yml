@@ -12,4 +12,4 @@
 #ansible_python_interpreter=/usr/bin/python
 
 [db]
-172.31.29.135 ansible_ssh_user='ec2-user'
+172.31.30.95 ansible_ssh_user='ubuntu'
