@@ -9,8 +9,7 @@
         name:
           - https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
           - dnf-utils
-          - http://rpms.remirepo.net/enterprise/remi-release-8.rpm
-
+          - http://rpms.remirepo.net/enterprise/remi-release-8.6.rpm
     - name: install httpd on the webserver
       ansible.builtin.yum:
         name: httpd
