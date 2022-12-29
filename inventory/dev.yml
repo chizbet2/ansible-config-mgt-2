@@ -2,7 +2,7 @@
 
 
 [todo]
-
+172.31.24.27 ansible_ssh_user='ec2-user'
 
 #[nginx]
 #172.31.20.135 ansible_ssh_user='ubuntu'
@@ -12,4 +12,4 @@
 #ansible_python_interpreter=/usr/bin/python
 
 [db]
-172.31.30.95 ansible_ssh_user='ubuntu'
+#172.31.30.95 ansible_ssh_user='ubuntu'
