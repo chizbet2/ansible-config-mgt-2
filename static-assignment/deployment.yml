@@ -5,11 +5,11 @@
 
   tasks:
     - name: install remi and rhel repo
-      ansible.builtin.yum:
+      yum:
         name:
           - https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
           - dnf-utils
-          - https://rpms.remirepo.net/enterprise/remi-release-9.rpm
+          - http://rpms.remirepo.net/enterprise/remi-release-9.rpm
     - name: install httpd on the webserver
       ansible.builtin.yum:
         name: httpd
